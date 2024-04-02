@@ -72,7 +72,7 @@ import { useEffect, useState } from 'react';
        <Card.Body>
         <Card.Title style={{fontWeight:"900"}}>Frontend Doveloper</Card.Title>
         <Card.Text>
-         Loccation : Banglore
+         Loccation : Bangloree
         </Card.Text>
         <Button variant="primary">Upply</Button>
       </Card.Body>
