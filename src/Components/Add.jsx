@@ -71,7 +71,7 @@ function Add() {
       <ToastContainer position="top-center"/>
     <Row>
         <Col  className='mt-3'>
-            <h2>Add</h2>
+            <h2>Add Job</h2>
 
         </Col>
     </Row>
@@ -126,9 +126,7 @@ function Add() {
     </Form>
         </Col>
     </Row>
-    <div>
-      <h2>hello</h2>
-    </div>
+    
    </Container>
   )
 }
