@@ -22,16 +22,15 @@ const [Jobs,setjobs] = useState({
         city:"",
         address:"",
         phone_number:"",
-        cv:"",
+        resume:"",
 })
 console.log(Jobs);
-    const handleSubmit =async  (event) => { 
+    const handleSubmit =async(event) => { 
       event.preventDefault();
     const form =  event.currentTarget;
     if(form.checkValidity()=== false){
       event.stopPropagation();
-      setValidated(true)
-    }else{
+      }else{
       const formData = new FormData();
       formData.append("firstName",Jobs.first_name)
       formData.append("lastname",Jobs.last_name)
@@ -40,11 +39,11 @@ console.log(Jobs);
       formData.append("city",Jobs.city)
       formData.append("address",Jobs.address)
       formData.append("phonenumber",Jobs.phone_number)
-      formData.append("cv",Jobs.cv)
+      formData.append("resume",Jobs.resume)
       
       try {
 
-        const res =await instance.post(`/api/v1/upply`, formData,{
+        const res =await instance.post("/api/v1/contactInfo", formData,{
           headers:{
             "Content-Type":"multipart/form-data",
           },
@@ -58,10 +57,10 @@ console.log(Jobs);
          toast.success(res.data.message);
 
          await new Promise((resolve) => setTimeout(resolve, 2000));
-         navigate("/")
-       
-        
-      } catch (error) {
+
+         navigate("/home")
+
+       } catch (error) {
         toast.error(error.response.data.message)
       }
     }
@@ -135,7 +134,7 @@ console.log(Jobs);
         </Form.Group>
         <Form.Group controlId="formFileMultiple" className="mb-3">
         <Form.Label>CV</Form.Label>
-        <Form.Control type="file" multiple onChange={(e)=>setjobs({...Jobs,cv:e.target.files[0]})} />
+        <Form.Control type="file" multiple onChange={(e)=>setjobs({...Jobs,resume:e.target.files[0]})} />
       </Form.Group>
     
       <Button  type="submit">Submit</Button>

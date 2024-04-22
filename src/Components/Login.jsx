@@ -40,7 +40,7 @@ function Login() {
                   dispatch(userAuthSuccess({user:res.data.user, isAuthenticated:res.data.isAuthenticated}));
                   toast.success(res.data.message)
                 new Promise((resolve)=> setTimeout(resolve,2000))
-                Navigate("/")
+                Navigate("/home")
                 }else{
                   toast.error(res.data.message)
                 }

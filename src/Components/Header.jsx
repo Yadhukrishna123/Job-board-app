@@ -32,7 +32,9 @@ function Header() {
             <Nav.Link as ={ Link} to = "/add">Add</Nav.Link>
             <Nav.Link as ={ Link} to = "/upply">Upply</Nav.Link>
             <Nav.Link as ={ Link} to = "/users">User</Nav.Link>
+            <Nav.Link as ={ Link} to = "/jobList">Jobs</Nav.Link>
             <Nav.Link as ={ Link} to = "/registerr">Sign in</Nav.Link>
+            {/* <Nav.Link as ={ Link} to = "/detail">details</Nav.Link> */}
           </Nav>
           
         </Navbar.Collapse>

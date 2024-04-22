@@ -1,54 +1,80 @@
 import React, { useEffect, useState } from 'react'
 import { Card ,ListGroup,Button, Container,Col,Row } from 'react-bootstrap'
-import { Link, useParams } from 'react-router-dom'
+import { Link,  } from 'react-router-dom'
+import instance from '../axios'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 
 function JobDetaild() {
 
-const [jobs,setJobs]=useState([])
-const {id} = useParams();
+ const [jobs,setJobs]=useState([])
+//const {id} = useParams();
 
-useEffect(()=>{
-  fetch("/jobs.json")
-  .then((res)=> res.json())
-  .then((data)=>setJobs(data))
+const getJobDetails = async  ()=>{
 
-},[])
+  try {
 
-const work = jobs.find((JOB)=>JOB.id == id)
+    const res =  await instance("/api/v1/getjob",{
+      withCredentials:true
+    })
 
+    setJobs(res.data.jobs) 
+
+  } catch (error) {
+    
+    toast.error(error.response.data.message)
+
+  }
+}
+useEffect(()=> {
+
+},[ getJobDetails])
+
+  getJobDetails()
   return (
    <Container>
-      {work && (
-         <Row>
-         <Col md={10}>
+    <ToastContainer position="top-center"/>
+      
+          <Row>
+          {jobs && jobs.map((job)=>(
+          <Col md={10}>
          
-         <Card >
-         <ListGroup.Item>Posting date:{work.postingDate} </ListGroup.Item>
-         <Card.Img variant="top" src={work.companyLogo} />
-         <Card.Body>
-           <Card.Title><h2> {work.jobTitle}</h2></Card.Title>
-           <Card.Text>
-            {work.description}
-           </Card.Text>
-         </Card.Body>
-         <ListGroup className="list-group-flush">
-         <ListGroup.Item>Company name:{work.companyName} </ListGroup.Item>
-         <ListGroup.Item>Experience : {work.experienceLevel}</ListGroup.Item>
-         <ListGroup.Item>Qualifications : {work.Qualifications} </ListGroup.Item>
-        <ListGroup.Item>Salary type : {work.salaryType}  </ListGroup.Item>
-           <ListGroup.Item>Location : {work.jobLocation}  </ListGroup.Item>
-           <ListGroup.Item>Shift and schedule : {work.employmentType} </ListGroup.Item>
-         </ListGroup>
-         <Card.Body>
-         <Button Link as ={ Link} to = "/ContactInfo" variant="primary">Upply</Button>
-         </Card.Body>
-       </Card>
-         </Col>
+              <Card >
+               <ListGroup.Item>Posting date:{job.companyname} </ListGroup.Item>  
+             <Card.Img variant="top" src=""/>
+             <Card.Body>
+               <Card.Title><h2> </h2></Card.Title>
+               <Card.Text> 
+   
+               </Card.Text>
+               </Card.Body>
+             <ListGroup className="list-group-flush">
+             <ListGroup.Item>:{job.title}  </ListGroup.Item>
+             <ListGroup.Item>Description:{job.description}  </ListGroup.Item>
+             <ListGroup.Item>Company_name:{job.companyname}  </ListGroup.Item>
+             <ListGroup.Item>Experience :{job.experiance}  </ListGroup.Item>
+             <ListGroup.Item>Qualifications :{job.qualification} </ListGroup.Item>
+             <ListGroup.Item>Salary :{job.salary}  </ListGroup.Item>
+             <ListGroup.Item>Location :{job.location}  </ListGroup.Item>
+             {/* <ListGroup.Item>Shift and schedule :{job.title}  </ListGroup.Item> */}
+             </ListGroup>
+             <Card.Body>
+             <Button Link as ={ Link} to = "/ContactInfo" variant="primary">Upply</Button>
+             </Card.Body>
+           </Card>
          
         
-       </Row>
-      )}
+       
+          </Col>
+          ))}
+          
+         
+        </Row>
+      
+         
+      
    </Container>
   )
 }

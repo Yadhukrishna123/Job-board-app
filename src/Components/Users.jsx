@@ -42,7 +42,7 @@ useEffect(()=>{
  
   getAllusers()
 
-},[navigate,getAllusers])
+},[users,navigate])
   
 
   return (
