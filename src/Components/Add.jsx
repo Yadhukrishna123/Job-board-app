@@ -25,11 +25,11 @@ function Add() {
     console.log(title);
     settitle(e.target.value )
   }
-  const handleDescription = (e)=>{
+  const handleCompanyName = (e)=>{                      
     console.log(companyname);
     setCompanyName(e.target.value )
   }
-  const  handleCompanyName = (e)=>{
+  const  handleDescription  = (e)=>{
     console.log(description);
     setDescription(e.target.value ) 
   }
@@ -83,7 +83,7 @@ function Add() {
             toast.success(res.data.message)
           }
           await new Promise((resolve) => setTimeout(resolve, 2000));
-          navigate("/")
+          navigate("/home")
         } catch (error) {
           console.log(error.message);
         }

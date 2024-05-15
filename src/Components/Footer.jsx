@@ -4,7 +4,7 @@ import "./Footer.css"
 
 function Footer() {
   return (
-    <div className='py-3 bg-dark text-centre' >Copyright all right reserved</div>
+    <div className='py-3 bg-dark  ' >Copyright all right reserved</div>
   )
 }
 

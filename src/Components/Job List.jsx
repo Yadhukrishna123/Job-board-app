@@ -63,7 +63,7 @@ useEffect(()=>{
           <tr key = {index}>
             <td>{index + 1}</td>
             <td>{job.title}</td>
-            <td>{job.description}</td>
+            <td>{job.company_name}</td>
             <td>{job.salary}</td>
             <td>{job.location}</td>
             <td> 

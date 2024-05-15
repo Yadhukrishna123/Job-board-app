@@ -54,11 +54,11 @@ import { useDispatch } from "react-redux";
       
     <Container fluid >
       <Row>
-
+z
 
       {jobs && (
          jobs.map((jobs ,index)=>(
-          <Col className='py-3' md={3} key={index} >
+          <Col className='py-4' md={4} key={index} >
            <Jobs abc={jobs} />
           </Col>
          ))

@@ -11,16 +11,18 @@ function Jobs({abc}) {
       <Card.Img variant="top" src="" />
       <Card.Body>
         <Card.Title style={{fontWeight:"bold"}}><h3>{abc.title}</h3></Card.Title>
+
         
         <ListGroup variant="flush">
         <div>
           <div>
-          <ListGroup.Item style={{fontWeight:"bold"}}>{abc.company_name}</ListGroup.Item> 
+          <ListGroup.Item style={{fontWeight:"bold"}}>{abc.description}</ListGroup.Item> 
           </div>
         </div>
                                                            
-        <ListGroup.Item style={{fontWeight:"bold"}}>Company Name : {abc.description}</ListGroup.Item>
-        <ListGroup.Item style={{fontWeight:"bold"}}>Experiance : {abc.experiance}</ListGroup.Item>
+        <ListGroup.Item style={{fontWeight:"bold"}}><h3> {abc.company_name}</h3></ListGroup.Item>
+
+        <ListGroup.Item style={{fontWeight:"bold"}}>Experiance : {abc.experience}</ListGroup.Item>
         <ListGroup.Item style={{fontWeight:"bold"}}>Qualificatiob : {abc.qualification}</ListGroup.Item>
         <ListGroup.Item style={{fontWeight:"bold"}}>Salary: {abc.salary}</ListGroup.Item>
         <ListGroup.Item style={{fontWeight:"bold"}}>Location: {abc.location}</ListGroup.Item>
